@@ -1,0 +1,1327 @@
+body {
+  background-color: #fff;
+  font-family: 'serif';
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* 공통 컨테이너: 모든 섹션의 좌우 라인을 일치시킴 */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px; /* 모든 섹션 공통 여백 */
+}
+
+/* 기본 초기화 및 폰트 설정 */
+/* 2. Section 1: 화면을 꽉 채우는 레이아웃 */
+.section1 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  /* 양쪽 끝 여백을 줄여 더 꽉 차게 만듦 */
+  padding: 0 80px; 
+  box-sizing: border-box;
+}
+
+.section1 .container {
+  width: 100%;
+  /* 최대 너비 제한을 풀거나 대폭 키움 (1800px 이상 추천) */
+  max-width: 1600px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+
+/* 왼쪽 영역 */
+.content-left {
+  flex: 1.2; /* 텍스트 영역 비율 조정 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 50px;
+}
+
+.brand-logo img {
+  width: 150px; /* 로고 크기가 너무 작다면 조정 */
+  margin-bottom: 20px;
+}
+
+.collection-title {
+  /* 폰트 사이즈를 조금 더 키워 화면 장악력 높임 */
+  font-size: 5.5rem; 
+  font-weight: lighter;
+  font-family: 'Inria Serif', serif;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+.description {
+  font-size: 1.1rem; /* 가독성을 위해 살짝 키움 */
+  line-height: 1.6;
+  color: #666;
+  max-width: 450px; /* 설명문이 너무 뭉치지 않게 가로폭 늘림 */
+}
+
+/* 하단 GNB 위치 조정 */
+/* 하단 GNB 스타일 */
+
+.bottom-gnb {
+
+  position: absolute;
+
+  bottom: 15%;
+
+  padding-top: 50px;
+
+}
+
+
+
+.gnb-list {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  border: 1.5px solid #333; /* 테두리 */
+
+  border-radius: 50px; /* 캡슐 모양 */
+
+  padding: 5px;
+
+  list-style: none;
+
+}
+
+
+
+.gnb-list li {
+
+  padding: 8px 25px;
+
+  border-radius: 40px;
+
+  transition: all 0.3s ease;
+
+}
+
+
+
+.gnb-list li a {
+
+  text-decoration: none;
+
+  color: #333;
+
+  font-size: 0.8rem;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+}
+
+
+
+/* 활성화된 메뉴(SOCIAL) 혹은 호버 시 흑백 반전 */
+
+.gnb-list li.active,
+
+.gnb-list li:hover {
+
+  background-color: #000;
+
+}
+
+
+
+.gnb-list li.active a,
+
+.gnb-list li:hover a {
+
+  color: #fff;
+
+}
+/* 오른쪽 영역: 이미지가 주인공이 되도록 */
+.content-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  height: 100%; /* 부모 높이 전체 사용 */
+}
+
+.main-visual {
+  width: 100%;
+  /* 높이를 60vh에서 80vh~90vh로 변경하여 화면에 꽉 차게 만듦 */
+  height: 65vh; 
+  align-self: center;
+  overflow: hidden;
+  /* 이미지에 깊이감을 주려면 약간의 그림자 추가 가능 */
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+}
+
+.main-visual img {
+  width: 100%;
+  height: 100%;
+  /* 이미지가 잘리지 않고 꽉 차게 조정 */
+  object-fit: cover; 
+}
+
+/* Swiper 기본 높이 */
+.mainSwiper {
+  width: 100%;
+  height: 100vh;
+}
+
+/* 슬라이드 2 스타일 (와인색 컨셉) */
+.section1-alt { width: 100%; height: 100vh; }
+.container-full { display: flex; width: 100%; height: 100%; }
+
+.wine-box {
+  flex: 1;
+  background-color: #631420; /* 짙은 와인색 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-brand-text {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  font-size: 7rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.05); /* 은은하게 깔리는 배경 글씨 */
+  letter-spacing: -2px;
+}
+
+.product-thumb {
+  width: 320px;
+  height: 320px;
+  padding: 30px;
+  z-index: 10;
+}
+
+.product-thumb img { width: 100%; height: 100%; object-fit: contain; }
+
+
+/* 와인색 박스 안에 있는 GNB만 스타일 변경 */
+.section1-alt .bottom-gnb .gnb-list {
+  border-color: rgba(255, 255, 255, 0.5); /* 테두리를 반투명한 흰색으로 */
+}
+
+.section1-alt .bottom-gnb .gnb-list li a {
+  color: #fff; /* 글자색을 흰색으로 */
+}
+
+/* SOCIAL(active) 버튼 스타일도 반전 */
+.section1-alt .bottom-gnb .gnb-list li.active {
+  background-color: #fff; /* 활성화 배경을 흰색으로 */
+}
+
+.section1-alt .bottom-gnb .gnb-list li.active a {
+  color: #631420; /* 활성화 글자색을 와인색으로 (포인트) */
+}
+
+/* 호버 효과도 흰색으로 대응 */
+.section1-alt .bottom-gnb .gnb-list li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.model-full-visual { flex: 1; }
+.model-full-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 페이지네이션 색상 커스텀 */
+.swiper-pagination-bullet-active { background: #000 !important; }
+
+.section2 {
+  width: 100%;
+ min-height: 100vh;
+  box-sizing: border-box;
+  padding: 20px 0;
+  background-color: #fff;
+}
+
+.section2 .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px; /* image_1ba044에서 빨간색으로 표시한 양옆 여백을 똑같이 맞춤 */
+}
+
+.catalog-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.catalog-main { flex: 1.2; }
+.catalog-main img { width: 100%; object-fit: cover; }
+
+.catalog-list { flex: 2; }
+.catalog-title { font-family: "Inria Serif"; font-size: 2rem; margin-bottom: 20px; }
+
+.product-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.product-item { flex: 0.8;}
+.product-item img { width: 100%; background-color: #f9f9f9; margin-bottom: 15px; }
+.product-item p { font-size: 0.8rem; font-weight: bold; }
+.product-item span { display: block; font-weight: normal; color: #888; margin-top: 5px; font-size: 0.7rem; }
+
+/* 흐르는 텍스트 애니메이션 */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #eee;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.marquee .track {
+  display: flex;
+  width: calc(200%); /* 콘텐츠 길이에 따라 조절 */
+  animation: marquee 20s linear infinite;
+}
+
+.marquee span {
+  font-weight: normal;
+  font-family:"Inria Serif";
+  font-size: 1.5rem;
+  white-space: nowrap;
+  padding-right: 30px; /* 글자 사이 간격 */
+  letter-spacing: 2px;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* 트랙의 절반만큼 이동하여 무한 반복처럼 보이게 함 */
+}
+
+/* Section 3: 한 화면에 꽉 차게 설정 */
+.section6 {
+
+  height: 100vh; /* 화면 꽉 채움 */
+  display: flex;
+  align-items: center; /* 수직 중앙 정렬 */
+  background-color: #fff;
+  overflow: hidden; /* 내부 요소가 넘치지 않게 방지 */
+ margin-top: 33px ;
+}
+
+.section6 .container {
+  display: flex;
+  flex-direction: column;
+   max-width: 1400px; 
+  justify-content: center;
+}
+
+/* 타이틀과 설명글 영역 간격 축소 */
+.text-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px; /* 간격 줄임 */
+}
+
+/* 타이틀 전체 공통 스타일 */
+.main-title, .main-title2, .highlight {
+  display: block; /* 한 줄씩 차지하도록 설정 */
+  font-family: 'Inria Serif', serif;
+  margin: 0;      /* 기본 여백 제거 */
+  padding: 0;
+  line-height: 1.1;
+}
+
+.right_zone{flex: 2;}
+.left_zone{flex: 1;}
+/* 첫 번째 줄: The Art of Subtlety: */
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #333;
+}
+
+/* 두 번째 줄: Where Minimalism (이탤릭 강조) */
+.highlight {
+  font-size: 2.5rem;
+  color: #6d4c4c; /* 강조 색상 */
+  font-style: italic;
+  font-weight: 300;
+  margin-left: 20px; /* 오른쪽으로 살짝 밀고 싶을 때 조정 */
+  margin-top: 5px;   /* 위 줄과의 간격 조절 */
+}
+
+/* 세 번째 줄: meets Luxury */
+.main-title2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #333;
+  margin-top: 5px;   /* 위 줄과의 간격 조절 */
+  margin-left: 120px;    /* 왼쪽 정렬 유지 */
+}
+
+/* 오른쪽 설명글 */
+.sub-description {
+  flex: 0 0 350px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  margin-top: 15px; /* 첫 번째 타이틀 줄과 높이 맞춤 */
+}
+/* 하단 그리드 레이아웃 */
+/* 하단 그리드 이미지 크기 조정 */
+.section6 .content-grid {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.feature-image {
+  flex: 1;
+}
+
+.feature-image img {
+  max-height: 70vh; /* 이미지 높이 제한으로 스크롤 방지 */
+  width: auto;
+  object-fit: cover;
+}
+
+.product-cards {
+  flex: 2;
+  display: flex;
+  gap: 30px;
+}
+
+.card {
+  flex: 1
+}
+
+.card img {
+  max-height: 35vh; /* 카드 이미지 높이 제한 */
+  width: auto;
+  object-fit: contain;
+}
+.card:hover img {
+  transform: translateY(-10px); /* 살짝 떠오르는 효과 */
+}
+
+.card-info .material {
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.card-info .name {
+  font-size: 0.85rem;
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.card-info .price {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+
+
+/* Section 4: 겹침 방지를 위해 높이 설정 변경 */
+.section4 {
+  width: 100%;
+  min-height: 100vh; /* 최소 높이만 지정하여 겹침 방지 */
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+.section4 .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px; /* 모든 섹션 공통 여백 유지 */
+}
+
+.section-title {
+  font-family: 'Inria Serif', serif;
+  font-size: 3rem;
+  margin-bottom: 50px;
+  font-weight: 400;
+}
+
+.season-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* 왼쪽 제품 영역 */
+.product-side {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+}
+
+.product-item {
+  flex: 1;
+}
+
+.product-item .img-box {
+  width: 100%;
+  background-color: #fcfcfc; /* 이미지 배경색 */
+  margin-bottom: 15px;
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-item .info span {
+  font-size: 0.7rem;
+  color: #999;
+  display: block;
+}
+
+.product-item .info p {
+  font-size: 0.85rem;
+  margin: 5px 0;
+}
+
+.product-item .info strong {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* 오른쪽 화보 영역 */
+.visual-side {
+  flex: 1;
+  width: 470px;
+  height: 490px;
+  overflow: hidden;
+}
+
+.visual-side img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 하단 more 버튼 */
+.more-btn-wrapper {
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+}
+
+.more-btn {
+  display: inline-block;
+  padding: 12px 60px;
+  border: 1px solid #6d4c4c; /* 레퍼런스의 브라운 톤 테두리 */
+  color: #6d4c4c;
+  text-decoration: none;
+  font-family: 'Inria Serif', serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.more-btn:hover {
+  background-color: #6d4c4c;
+  color: #fff;
+}
+
+.section5 {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.section5 .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* 타이틀 스타일 */
+.curated-title {
+  font-family: 'Inria Serif', serif;
+  font-size: 2.8rem;
+  line-height: 1.3;
+  margin-bottom: 80px;
+  color: #333;
+  text-align: left;
+}
+
+.curated-title span {
+  color: #6d4c4c; /* 강조 색상 */
+  padding-bottom: 5px;
+}
+
+/* 비대칭 무드 그리드 */
+.mood-grid {
+  display: flex;
+  max-width: 860px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.mood-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 왼쪽 작은 이미지: 위쪽으로 정렬 */
+.side-left {
+
+  align-self: center;
+  margin-top: 50px;
+}
+
+/* 중앙 큰 이미지: 가장 강조됨 */
+.main-center {
+ 
+}
+
+/* 오른쪽 작은 이미지: 아래쪽으로 정렬 */
+.side-right {
+align-self: center;
+  margin-bottom: 50px;
+}
+
+/* 반응형 모바일 */
+@media (max-width: 768px) {
+  .mood-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .curated-title { font-size: 1.8rem; }
+  .side-left, .side-right { align-self: center; margin: 0; }
+}
+
+
+/* Section 6: 블랙 갤러리 레이아웃 */
+.section3 {
+  min-height: 100vh;
+  background-color: #000; /* 고급스러운 딥 블랙 */
+  color: #fff;
+  padding: 120px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.section3 .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 60px; /* 좌우 여백 통일 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 타이틀 디자인 */
+.section3 .exhibition-header {
+  margin-bottom: 80px;
+}
+
+.section3 .main-title {
+  font-family: 'Inria Serif', serif;
+  font-size: clamp(4rem, 8vw, 8rem); /* 화면 크기에 따라 유동적 조절 */
+  line-height: 0.9;
+  font-weight: 300;
+  text-transform: capitalize;
+  letter-spacing: -3px;
+  color: #fff;
+}
+
+.section3 .title-img {
+  display: inline-block;
+  width: 120px;
+  height: 80px;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-left: -10px;
+}
+
+.section3 .title-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section3 .section-desc {
+  max-width: 450px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #ccc;
+  margin-top: 40px;
+  margin-left: 5%;
+}
+
+/* 이미지 그리드 배정 */
+.section3  .art-grid {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.section3 .grid-left { flex: 1.5; }
+.section3 .grid-right { 
+  flex: 1; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 120px; 
+  padding-top: 150px; /* 비대칭 효과 */
+}
+
+.section3 .image-box {
+  position: relative;
+  width: 100%;
+  max-height: 60vh; 
+}
+
+.section3 .image-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section3 .image-box.medium { width: 90%; margin-left: auto; }
+.section3 .image-box.small { width: 70%; margin-left: 20%; }
+
+/* 날짜 라벨 및 라인 */
+.section3 .date-label {
+  position: absolute;
+  left: -90px;
+  top: -27%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.section3 .date-label::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background-color: #444;
+}
+
+/* 반응형 처리 */
+@media (max-width: 1024px) {
+  .section3 .art-grid { flex-direction: column; gap: 40px; }
+  .section3 .grid-right { padding-top: 0; gap: 60px; }
+  .section3 .image-box.medium, .section3 .image-box.small { width: 100%; margin-left: 0; }
+  .section3 .date-label { position: static; transform: none; margin-bottom: 10px; }
+}
+
+/* 푸터 전체 스타일 */
+.site-footer {
+  width: 100%;
+  padding: 80px 0 40px;
+  height: 100vh;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  color: #211D1E;
+}
+
+.site-footer .wrap {
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* 상단: Menu & Info 레이아웃 */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.footer-top h4 {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 25px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.footer-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-menu nav a {
+  font-size: 2.2rem; /* 레퍼런스 특유의 큰 서체 */
+  text-decoration: none;
+  color: #211D1E;
+  font-family: 'Inria Serif', serif;
+  line-height: 1.1;
+  transition: opacity 0.3s;
+}
+
+.footer-menu nav a:hover {
+  opacity: 0.5;
+}
+
+.footer-info p {
+  font-size: 2.2rem;
+  font-family: 'Inria Serif', serif;
+  line-height: 1.2;
+}
+
+/* 하단: App Download & Big Logo */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid #eee;
+  padding-top: 40px;
+}
+
+.download-section p {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.app-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.app-buttons img {
+  height: 30px;
+  width: auto;
+}
+
+/* 오른쪽 하단 거대 로고 스타일 */
+.footer-big-logo {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.copyright-mark {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.logo-text {
+  font-size: 10rem; /* 매우 크게 배치 */
+  font-family: 'Inria Serif', serif;
+  line-height: 0.8;
+  letter-spacing: -5px;
+}
+
+/* 반응형 모바일 */
+@media (max-width: 1024px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+  }
+  .logo-text {
+    font-size: 5rem;
+  }
+}
+
+/* 기본 초기화 */
+.sub * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 섹션1: 전체를 감싸는 영역 */
+.sub .section1 {
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Pretendard', sans-serif;
+    color: #333;
+    position: relative;
+    
+}
+
+/* --- [1] 헤더 영역: 화면 전체 너비 사용 --- */
+.sub .section1 .header {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 30px 0; /* 위아래 여유 공간 */
+    position: absolute;
+    top: 0;
+}
+
+.sub .section1 .header-inner {
+    width: 100%;
+    max-width: 1800px; /* 헤더는 아주 넓게 설정 */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px; /* 양옆 여백 */
+}
+
+.sub .section1 .nav-left, 
+.sub .section1 .nav-right {
+    flex: 1;
+}
+
+.sub .section1 .header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.sub .section1 .nav-right ul {
+    justify-content: flex-end; /* 오른쪽 메뉴 우측 정렬 */
+}
+
+.sub .section1 .header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.sub .section1 .logo {
+    text-align: center;
+}
+
+.sub .section1 .logo h1 {
+    font-family: 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+.sub .section1 .product-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 8%;
+    position: absolute;
+}
+
+/* 이미지 영역 */
+.sub .section1 .product-image {
+    flex: 1;
+    background-color: #f9f9f9;
+}
+
+.sub .section1 .product-image img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* 정보 영역 */
+.sub .section1 .product-info {
+    flex: 1;
+    padding-top: 10px;
+}
+
+.sub .section1 .info-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.sub .section1 .product-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.sub .section1 .product-price {
+    font-size: 18px;
+    color: #555;
+}
+
+.sub .section1 .product-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.sub .section1 .specs {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+/* 옵션 및 폼 스타일 */
+.sub .section1 .accordion-item {
+    border-top: 1px solid #eee;
+    padding: 15px 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.sub .section1 .form-group {
+    margin-top: 20px;
+}
+
+.sub .section1 .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.sub .section1 .form-group input, 
+.sub .section1 .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* 버튼 스타일 */
+.sub .section1 .button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.sub .section1 .btn-buy {
+    flex: 2;
+    background: #000;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.sub .section1 .btn-cart,
+.sub .section1 .btn-wish {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #000;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.sub .section1 .btn-npay {
+    width: 100%;
+    margin-top: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* 반응형 대응 (모바일) */
+@media (max-width: 768px) {
+    .sub .section1 .product-container {
+        flex-direction: column;
+    }
+}
+
+/* Section 2 공통 레이아웃 */
+.sub .section2 {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 0;
+    background-color: #fff;
+    font-family: 'Times New Roman', serif;
+}
+
+.sub .section2 .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 상단 스토리 블록 */
+.sub .section2 .story-block {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 150px;
+    border: 1px solid #000;
+}
+
+.sub .section2 .story-block .img-box { flex: 1; }
+.sub .section2 .story-block .img-box img { width: 100%; display: block; }
+.sub .section2 .story-block .txt-box { flex: 1; text-align: center; }
+.sub .section2 .story-block .txt-box h3 { font-size: 32px; font-weight: 300; margin-bottom: 20px; }
+.sub .section2 .story-block .txt-box p { font-size: 15px; line-height: 1.8; color: #666; font-family: 'Pretendard', sans-serif; }
+
+/* 01~03 특징 열 (지그재그 배치) */
+.sub .section2 .feature-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.sub .section2 .feature-row.reverse { flex-direction: row-reverse; }
+
+.sub .section2 .feature-row .txt-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub .section2 .feature-row .txt-side .num {
+    font-size: 40px;
+    font-style: italic;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}
+
+.sub .section2 .feature-row .txt-side h4 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 10px;
+    color: #555;
+}
+
+.sub .section2 .feature-row .img-side { flex: 1.2; }
+.sub .section2 .feature-row .img-side img { width: 100%; display: block; }
+
+/* 하단 와이드 비주얼 */
+.sub .section2 .wide-visual {
+    width: 100%;
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.sub .section2 .wide-visual img { width: 100%; display: block; }
+.sub .section2 .wide-visual .visual-label {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    letter-spacing: 8px;
+    color: #333;
+}
+
+/* 디자인 설명 푸터 */
+.sub .section2 .design-footer {
+    display: flex;
+    border-top: 1px solid #eee;
+    padding-top: 40px;
+    gap: 50px;
+}
+
+.sub .section2 .design-footer .footer-title {
+    font-size: 28px;
+    font-weight: 300;
+    flex: 1;
+}
+
+.sub .section2 .design-footer .footer-desc {
+    flex: 3;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666;
+    padding-left: 40px;
+    border-left: 1px solid #eee;
+}
+
+/* 반응형 모바일 */
+@media (max-width: 768px) {
+    .sub .section2 .story-block,
+    .sub .section2 .feature-row,
+    .sub .section2 .feature-row.reverse,
+    .sub .section2 .design-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .sub .section2 .design-footer .footer-desc {
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+/* Section 3 공통 레이아웃 */
+.sub .section3 {
+    width: 100%;
+    padding: 150px 0;
+    background-color: #fff;
+}
+
+.sub .section3 .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Section 3: 비정형 갤러리 레이아웃 */
+.sub .section3 .visual-gallery {
+    width: 100%;
+    max-width: 1400px; /* 전체적인 너비 제한 */
+    margin: 0 auto 150px;
+    display: flex;
+    flex-direction: column; /* 세로로 쌓으면서 위치 조정 */
+    gap: 80px; /* 이미지 사이의 기본 수직 간격 */
+}
+
+.sub .section3 .visual-item {
+    width: 60%; /* 기본적으로 이미지 너비를 제한 */
+    transition: transform 0.3s ease;
+       gap: 170px;
+}
+
+.sub .section3 .visual-item img {
+    width: 100%;
+    display: block;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.05); /* 은은한 그림자 추가 */
+}
+
+/* 첫 번째 이미지: 오른쪽 정렬 */
+.sub .section3 .visual-item.wide {
+    width: 70%; 
+    align-self: flex-end; /* 오른쪽으로 붙임 */
+    margin-right: -5%; /* 화면 밖으로 살짝 나가는 느낌 (선택사항) */
+    z-index: 1;
+}
+
+/* 두 번째 & 세 번째 이미지를 감싸는 그룹 제거 후 개별 배치 권장 */
+/* HTML 구조를 유지해야 한다면 아래와 같이 조정합니다 */
+.sub .section3 .visual-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* 두 번째 이미지 (Wearing Ring 02): 왼쪽 정렬 및 위로 끌어올림 */
+.sub .section3 .visual-group .visual-item:first-child {
+    width: 55%;
+    align-self: flex-start; /* 왼쪽으로 붙임 */
+    z-index: 2;
+}
+
+/* 세 번째 이미지 (Product Group): 오른쪽 정렬 및 중간 배치 */
+.sub .section3 .visual-group .visual-item:last-child {
+    width: 65%;
+    align-self:flex-end; /* 중앙 근처 배치 */
+    margin-left: 20%; /* 비정형적인 위치를 위해 수동 여백 */
+    margin-top: 50px;
+    z-index: 1;
+}
+
+/* 호버 효과 (선택 사항) */
+.sub .section3 .visual-item:hover {
+    transform: translateY(-10px);
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .sub .section3 .visual-item {
+        width: 90% !important;
+        margin: 0 auto !important;
+        align-self: center !important;
+    }
+    .sub .section3 .visual-gallery {
+        gap: 40px;
+    }
+}
+
+/* 3. 사이즈 테이블 */
+.sub .section3 .table-wrapper {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+
+.sub .section3 .size-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 13px;
+}
+
+.sub .section3 .size-table th {
+    padding: 15px 0;
+    font-weight: 500;
+    color: #333;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.sub .section3 .size-table td {
+    padding: 12px 0;
+    color: #666;
+}
+
+.sub .section3 .size-table tr.highlight td {
+    background-color: #fffcf0; /* 강조 색상 */
+    font-weight: bold;
+    color: #b0914f;
+}
+
+.sub .section3 .table-legend {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 12px;
+    color: #999;
+}
+
+.sub .section3 .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.sub .section3 .dot.gold { background: #f1e4bc; }
+.sub .section3 .dot.silver { background: #f0f0f0; }
+
+/* 4. 패키지 영역 */
+.sub .section3 .package-img {
+    margin-top: 50px;
+}
+
+.sub .section3 .package-img img {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* 반응형 처리 */
+@media (max-width: 768px) {
+    .sub .section3 .visual-group {
+        flex-direction: column;
+    }
+    .sub .section3 .size-table {
+        font-size: 11px; /* 모바일에서 글자 크기 축소 */
+    }
+}
